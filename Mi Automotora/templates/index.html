@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Automotora VIP</title>
+    <style>
+        body {
+            margin: 0; font-family: 'Segoe UI', sans-serif; color: white;
+            background-image: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7");
+            background-size: cover; background-attachment: fixed;
+        }
+        body::before {
+            content: ""; position: fixed; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); z-index: 0;
+        }
+        body * { position: relative; z-index: 1; }
+        header { text-align: center; padding: 50px; font-size: 40px; color: #f1c40f; font-weight: bold; }
+        
+        .container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; padding: 40px; max-width: 800px; margin: auto; }
+        .card { 
+            background: rgba(255,255,255,0.1); padding: 40px; text-align: center; 
+            border-radius: 15px; cursor: pointer; font-size: 22px; border: 2px solid #f1c40f;
+            transition: 0.3s;
+        }
+        .card:hover { background: rgba(241, 196, 15, 0.2); transform: scale(1.05); }
+
+        .productos { display: none; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 40px; }
+        .producto { background: rgba(0,0,0,0.7); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #444; }
+        .producto img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
+        .producto h3 { margin: 15px 0; font-size: 20px; }
+        .producto p { color: #f1c40f; font-weight: bold; font-size: 24px; }
+        .volver { margin: 20px; display: inline-block; cursor: pointer; color: #f1c40f; font-size: 18px; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<header>🚗 AUTOMOTORA PREMIUM</header>
+
+<div class="container" id="menu">
+    <div class="card" onclick="mostrar('suv')">🚙 Ver SUVs</div>
+    <div class="card" onclick="mostrar('deportivos')">🏎️ Ver Deportivos</div>
+</div>
+
+<div id="suv" class="productos">
+    <span class="volver" onclick="volver()">⬅ Volver al Menú</span>
+    <div class="producto">
+        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf">
+        <h3>Ford Explorer 4x4</h3>
+        <p>$35.990.000</p>
+    </div>
+    <div class="producto">
+        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d">
+        <h3>Jeep Wrangler</h3>
+        <p>$42.500.000</p>
+    </div>
+</div>
+
+<div id="deportivos" class="productos">
+    <span class="volver" onclick="volver()">⬅ Volver al Menú</span>
+    <div class="producto">
+        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888">
+        <h3>Ferrari 488 Italia</h3>
+        <p>$210.000.000</p>
+    </div>
+    <div class="producto">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+        <h3>Porsche 911 Turbo</h3>
+        <p>$125.000.000</p>
+    </div>
+</div>
+
+<script>
+function mostrar(seccion) {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById(seccion).style.display = "grid";
+}
+
+function volver() {
+    document.getElementById("menu").style.display = "grid";
+    document.querySelectorAll(".productos").forEach(sec => sec.style.display = "none");
+}
+</script>
+
+</body>
+</html>
